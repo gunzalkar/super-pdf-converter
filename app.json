@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "Super PDF Converter",
+    "slug": "super-pdf-converter",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0d0d0d",
+    "splash": {
+      "backgroundColor": "#0d0d0d"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kshitijgunjalkar.imgtopdf",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "IMG_to_PDF needs access to your photo library to select images.",
+        "NSPhotoLibraryAddUsageDescription": "IMG_to_PDF saves your generated PDFs to your photo library."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0d0d0d"
+      },
+      "package": "com.kshitijgunjalkar.imgtopdf",
+      "versionCode": 1,
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_MEDIA_IMAGES",
+        "MANAGE_DOCUMENTS"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow IMG_to_PDF to access your photos to select images for conversion.",
+          "cameraPermission": false
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow IMG_to_PDF to save generated PDFs.",
+          "savePhotosPermission": "Allow IMG_to_PDF to save PDFs to your library.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ],
+      "expo-font"
+    ]
+  }
+}
