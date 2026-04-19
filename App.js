@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { colors } from './src/styles/theme';
 
@@ -13,23 +12,10 @@ import SplitPdfScreen from './src/screens/SplitPdfScreen';
 
 const Stack = createNativeStackNavigator();
 
-// Prevent auto-hiding of splash screen while fonts load
-SplashScreen.preventAutoHideAsync().catch(() => {});
-
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     SpaceMono: require('./assets/fonts/SpaceMono-Regular.ttf'),
   });
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError]);
-
-  useEffect(() => {
-    onLayoutRootView();
-  }, [onLayoutRootView]);
 
   if (!fontsLoaded && !fontError) return null;
 
